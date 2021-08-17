@@ -1,0 +1,66 @@
+set mouse:a
+set clipboard+=ideaput
+set scrolloff=5
+set incsearch
+
+let mapleader="\"
+imap jj <ESC>
+
+map <C-h> <C-W>h
+map <c-j> <C-W>j
+map <c-k> <C-W>k
+map <c-l> <C-W>l
+
+nnoremap gh gf
+nnoremap gl gt
+
+nnoremap [<SPACE> O<ESC>j
+nnoremap ]<SPACE> o<ESC>k
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+nnoremap [q :action GotoNextError<CR>
+nnoremap ]q :action GotoPrevError<CR>
+
+nnoremap <c-o> :action Back<CR>
+nnoremap <c-i> :action Forward<CR>
+
+nnoremap <C-CR> :action ShowIntentAction<CR>
+nnoremap <CR> :action EditorEnter<CR>
+
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>r :action Run<CR>
+nnoremap <leader>d :action Debug<CR>
+nnoremap <leader>c :action Stop<CR>
+
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>U :action HighlightUsagesInFile<CR>
+nnoremap <leader>r :action RenameElement<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplemention<CR>
+nnoremap gb :action JumpToLastChange<CR>
+
+nnoremap gwd :action ActivateDebugToolWindow<CR>
+nnoremap gwr :action ActivateRunToolWindow<CR>
+nnoremap gwp :action ActivateProjectToolWindow<CR>
+nnoremap gwt :action ActivateTerminalToolWindow<CR>
+nnoremap gwb :action ViewBreakPoints<CR>
+nnoremap gjz :action ToogleDistractionFreeMode<CR>
+
+
+" Java
+nnoremap gwg :action ActivateGradleToolWindow<CR>
+nnoremap gjd :action QuickJavaDoc<CR>
+
+
+" Python
+nnoremap gwc :action ActivatePythonConsoleToolWindow<CR>
+nnoremap gwm :action DjangoRunManageTaskAction<CR>
+
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
