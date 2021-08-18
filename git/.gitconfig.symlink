@@ -1,0 +1,47 @@
+[include]
+    # Attach any local configurations.
+    path = ~/.gitconfig.local
+[hub]
+    protocol = https
+[alias]
+    s = status -sb
+    h = log --pretty=format:\"%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --graph --abbrev-commit --date=relative
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+    amend = commit --amend --reuse-message=HEAD
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[core]
+    mergeoptions = --no-edit
+    excludesfile = ~/.gitignore
+	editor = nvim
+[apply]
+    whitespace = nowarn
+[mergetool]
+    keepBackup = false
+[difftool]
+    prompt = false
+[help]
+    autocorrect = 1
+[push]
+    # See `git help config` (search for push.default)
+    # for more information on different options of the below setting.
+    #
+    # Setting to git 2.0 default to suppress warning message
+    default = simple
+[remote "origin"]
+	prune = true

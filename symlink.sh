@@ -28,7 +28,7 @@ install_dotfiles () {
   local skip_all=false
 
   # Iterate over all directories in our dotfiles root looking for .symlink files.
-  for src in $(find -H "$(pwd -P)" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H ~/.dotfiles -name '*.symlink')
   do
     dst="$HOME/$(basename "${src%.*}")"
     link_file "$src" "$dst"
