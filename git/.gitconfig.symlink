@@ -45,3 +45,5 @@
     default = simple
 [remote "origin"]
 	prune = true
+[init]
+	defaultBranch = main
