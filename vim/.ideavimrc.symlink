@@ -2,6 +2,10 @@ set mouse:a
 set clipboard+=ideaput
 set scrolloff=5
 set incsearch
+set easymotion
+
+set relativenumber
+set number
 
 let mapleader="\"
 imap jj <ESC>
@@ -16,15 +20,15 @@ nnoremap gl gt
 
 nnoremap [<SPACE> O<ESC>j
 nnoremap ]<SPACE> o<ESC>k
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
+
+nnoremap [[ :action Back<CR>
+nnoremap ]] :action Forward<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [e :action GotoNextError<CR>
+nnoremap ]e :action GotoPrevError<CR>
 nnoremap [c :action VcsShowPrevChangeMarker<CR>
 nnoremap ]c :action VcsShowNextChangeMarker<CR>
-nnoremap [q :action GotoNextError<CR>
-nnoremap ]q :action GotoPrevError<CR>
-
-nnoremap <c-o> :action Back<CR>
-nnoremap <c-i> :action Forward<CR>
 
 nnoremap <C-CR> :action ShowIntentAction<CR>
 nnoremap <CR> :action EditorEnter<CR>
@@ -37,12 +41,11 @@ nnoremap <leader>c :action Stop<CR>
 nnoremap <leader>b :action ToggleLineBreakpoint<CR>
 nnoremap <leader>u :action FindUsages<CR>
 nnoremap <leader>U :action HighlightUsagesInFile<CR>
-nnoremap <leader>r :action RenameElement<CR>
+nnoremap <leader>n :action RenameElement<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gi :action GotoImplemention<CR>
-nnoremap gb :action JumpToLastChange<CR>
 
 nnoremap gwd :action ActivateDebugToolWindow<CR>
 nnoremap gwr :action ActivateRunToolWindow<CR>
@@ -51,6 +54,19 @@ nnoremap gwt :action ActivateTerminalToolWindow<CR>
 nnoremap gwb :action ViewBreakPoints<CR>
 nnoremap gjz :action ToogleDistractionFreeMode<CR>
 
+" Handle shift+arrows keys for text selection
+nmap <S-Left> <Action>(EditorLeftWithSelection)
+nmap <S-Right> <Action>(EditorRightWithSelection)
+nmap <S-Up> <Action>(EditorUpWithSelection)
+nmap <S-Down> <Action>(EditorDownWithSelection)
+imap <S-Left> <Action>(EditorLeftWithSelection)
+imap <S-Right> <Action>(EditorRightWithSelection)
+imap <S-Up> <Action>(EditorUpWithSelection)
+imap <S-Down> <Action>(EditorDownWithSelection)
+vmap <S-Left> <Action>(EditorLeftWithSelection)
+vmap <S-Right> <Action>(EditorRightWithSelection)
+vmap <S-Up> <Action>(EditorUpWithSelection)
+vmap <S-Down> <Action>(EditorDownWithSelection)
 
 " Java
 nnoremap gwg :action ActivateGradleToolWindow<CR>
