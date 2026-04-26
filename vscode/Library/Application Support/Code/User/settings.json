@@ -1,0 +1,536 @@
+{
+    // ============================================================
+    // EDITOR BASICS - Core editing behavior
+    // ============================================================
+    "editor.cursorSurroundingLines": 8,
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [
+        120
+    ],
+    "editor.wordWrap": "off",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.detectIndentation": true,
+    "editor.linkedEditing": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "auto",
+    "editor.tabSize": 4,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 12,
+    // Auto-save for terminal-focused workflows
+    "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    // ============================================================
+    // SEARCH & FILES
+    // ============================================================
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/target": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.venv": true,
+        "**/venv": true,
+        "**/.cargo": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true,
+        "**/target/**": true,
+        "**/.venv/**": true
+    },
+    // ============================================================
+    // COMMAND PALETTE & QUICK OPEN
+    // ============================================================
+    "workbench.quickOpen.closeOnFocusLost": true,
+    "workbench.quickOpen.preserveInput": true,
+    "search.quickOpen.includeHistory": true,
+    "search.quickOpen.includeSymbols": true,
+    "workbench.commandPalette.history": 50,
+    "workbench.commandPalette.preserveInput": true,
+    // ============================================================
+    // MINIMAL UI - Reduce visual clutter
+    // ============================================================
+    "workbench.editor.showTabs": "none",
+    "workbench.editor.enablePreview": false,
+    "breadcrumbs.enabled": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.statusBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.tree.indent": 16,
+    // Zen mode settings
+    "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "none",
+    "zenMode.hideStatusBar": true,
+    "zenMode.centerLayout": true,
+    // "typescript.tsc.autoDetect": "off",
+    // "grunt.autoDetect": "off",
+    // "jake.autoDetect": "off",
+    // "gulp.autoDetect": "off",
+    // "npm.autoDetect": "off"
+    // ============================================================
+    // VIM EXTENSION - Match your NeoVim config
+    // ============================================================
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": false,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            // Delete without overwriting clipboard
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            // Disable Q (ex mode)
+            "before": [
+                "Q"
+            ],
+            "after": [
+                "<nop>"
+            ]
+        },
+        {
+            // Rename symbol
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            // Code actions
+            "before": [
+                "<leader>",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            // Toggle breakpoint
+            "before": [
+                "<leader>",
+                "d",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            // Start debugging
+            "before": [
+                "<leader>",
+                "d",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.debug.start"
+            ]
+        },
+        {
+            // Continue debugging
+            "before": [
+                "<leader>",
+                "d",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.debug.continue"
+            ]
+        },
+        {
+            // Step over
+            "before": [
+                "<leader>",
+                "d",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOver"
+            ]
+        },
+        {
+            // Step into
+            "before": [
+                "<leader>",
+                "d",
+                "i"
+            ],
+            "commands": [
+                "workbench.action.debug.stepInto"
+            ]
+        },
+        {
+            // Step out (return)
+            "before": [
+                "<leader>",
+                "d",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOut"
+            ]
+        },
+        {
+            // Command palette
+            "before": [
+                "<leader>",
+                "<leader>"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
+        {
+            // Close all editors
+            "before": [
+                "<leader>",
+                "q",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.closeAllEditors"
+            ]
+        },
+        {
+            // Zen mode
+            "before": [
+                "<leader>",
+                "z"
+            ],
+            "commands": [
+                "workbench.action.toggleZenMode"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            // Paste without overwriting clipboard
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "P"
+            ]
+        },
+        {
+            // Delete without overwriting clipboard
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        // Have the Vim extension gnore ctrl+hjkl so that our
+        // custom key bindings will navigate the windows
+        "<C-h>": false,
+        "<C-j>": false,
+        "<C-k>": false,
+        "<C-l>": false
+    },
+    // ============================================================
+    // TERMINAL INTEGRATION - Zsh and Tmux
+    // ============================================================
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux-shell": {
+            "path": "tmux",
+            "args": [
+                "new-session",
+                "-A",
+                "-s",
+                "vscode:${workspaceFolderBasename}"
+            ]
+        },
+        "tmux-attach": {
+            "path": "tmux",
+            "args": [
+                "attach-session",
+                "-t",
+                "vscode:${workspaceFolderBasename}"
+            ]
+        }
+    },
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.env.osx": {
+        "VSCODE_TERMINAL": "1"
+    },
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+    "terminal.integrated.gpuAcceleration": "on",
+    // ============================================================
+    // LANGUAGE-SPECIFIC SETTINGS
+    // ============================================================
+    // Python
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        },
+        "editor.tabSize": 4,
+        "editor.rulers": [
+            120
+        ],
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "ruff.nativeServer": true,
+    // TypeScript/JavaScript
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.tabSize": 4,
+        "editor.rulers": [
+            120
+        ]
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "editor.tabSize": 4
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    // Java
+    "[java]": {
+        "editor.tabSize": 4,
+        "editor.rulers": [
+            120
+        ]
+    },
+    // Go
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.rulers": [
+            120
+        ]
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "go.useLanguageServer": true,
+    "go.lintOnSave": "package",
+    "go.lintTool": "golangci-lint",
+    "gopls": {
+        "ui.semanticTokens": true,
+        "ui.completion.usePlaceholders": true,
+        "formatting.gofumpt": true,
+        "analyses": {
+            "unusedparams": true,
+            "shadow": true,
+            "unusedwrite": true,
+            "fieldalignment": false
+        }
+    },
+    // JSON
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.tabSize": 4
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.tabSize": 4
+    },
+    // Markdown
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+        "editor.tabSize": 4
+    },
+    // ============================================================
+    // GIT INTEGRATION
+    // ============================================================
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "always",
+    "scm.defaultViewMode": "tree",
+    "diffEditor.ignoreTrimWhitespace": false,
+    // ============================================================
+    // THEME & APPEARANCE
+    // ============================================================
+    "workbench.colorTheme": "Dainty – Nord (chroma 0, lightness 0)",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "editor.background": "#1b1b1b",
+        "editorGutter.background": "#1b1b1b",
+        "sideBar.background": "#1b1b1b",
+        "activityBar.background": "#1b1b1b",
+        "panel.background": "#1b1b1b",
+        "statusBar.background": "#1b1b1b",
+        "titleBar.activeBackground": "#1b1b1b",
+        "titleBar.inactiveBackground": "#1b1b1b",
+        "editorGroupHeader.tabsBackground": "#1b1b1b",
+        "tab.activeBackground": "#1b1b1b",
+        "tab.inactiveBackground": "#1b1b1b",
+        "terminal.background": "#1b1b1b",
+        "terminalCursor.background": "#1b1b1b",
+        "terminalCursor.foreground": "#bf616a",
+        "terminal.selectionBackground": "#434c5e",
+        "terminal.border": "#3b4252",
+        "editorGutter.modifiedBackground": "#ebcb8b",
+        "editorGutter.addedBackground": "#a3be8c",
+        "editorGutter.deletedBackground": "#bf616a",
+        "quickInput.background": "#1b1b1b",
+        "quickInputList.focusBackground": "#434c5e",
+        "diffEditor.insertedTextBackground": "#a3be8c10",
+        "diffEditor.removedTextBackground": "#bf616a20",
+        "diffEditor.insertedLineBackground": "#a3be8c0a",
+        "diffEditor.removedLineBackground": "#bf616a15"
+    },
+    // ============================================================
+    // MISC SETTINGS
+    // ============================================================
+    "workbench.settings.editor": "json",
+    "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "update.showReleaseNotes": false,
+    "security.workspace.trust.enabled": false,
+    "workbench.startupEditor": "none",
+    "window.restoreWindows": "none",
+    "extensions.autoUpdate": true,
+    "extensions.ignoreRecommendations": false,
+    "chat.mcp.gallery.enabled": true,
+    "pgsql.serverGroups": [
+        {
+            "name": "Servers",
+            "id": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
+            "isDefault": true
+        }
+    ],
+    "pgsql.connections": [
+        {
+            "id": "1F39B89D-4AB5-4AE3-9E42-9610C2D4A687",
+            "groupId": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 15,
+            "applicationName": "vscode-pgsql",
+            "clientEncoding": "utf8",
+            "sslmode": "prefer",
+            "savePassword": true,
+            "server": "localhost",
+            "user": "dbadmin",
+            "password": "",
+            "database": "stardust",
+            "profileName": "Nebula-Staging",
+            "sshPassword": "",
+            "expiresOn": 0
+        },
+        {
+            "id": "186F990F-B6D1-4D76-8C5F-46093BA0CD0B",
+            "groupId": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 15,
+            "applicationName": "vscode-pgsql",
+            "clientEncoding": "utf8",
+            "sslmode": "prefer",
+            "savePassword": true,
+            "server": "localhost",
+            "user": "dbhistory",
+            "password": "",
+            "database": "dbhistory",
+            "profileName": "dbhistory",
+            "sshPassword": "",
+            "expiresOn": 0
+        }
+    ],
+    "claudeCode.useTerminal": true,
+    "claudeCode.preferredLocation": "sidebar",
+    "[dockercompose]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
+}

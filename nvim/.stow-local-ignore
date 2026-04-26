@@ -1,0 +1,7 @@
+# Repo-internal files (not for stowing)
+\.gitignore
+
+# Ignore auto-generated files and directories
+lazy-lock.json
+plugin
+.DS_Store

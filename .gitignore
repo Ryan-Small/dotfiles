@@ -1,0 +1,14 @@
+.DS_Store
+**/*.local*
+
+# Claude Code: ignore all runtime state, allow-list curated config
+claude/.claude/*
+!claude/.claude/CLAUDE.md
+!claude/.claude/settings.json
+!claude/.claude/statusline.sh
+!claude/.claude/agents/
+!claude/.claude/commands/
+!claude/.claude/output-styles/
+!claude/.claude/rules/
+!claude/.claude/skills/
+!claude/.claude/templates/

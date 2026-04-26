@@ -1,0 +1,318 @@
+// VS Code Keybindings
+[
+  // ============================================================
+  // TERMINAL INTEGRATION
+  // ============================================================
+  // Focus and maximize terminal (toggle)
+  {
+    "key": "ctrl+`",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.terminal.focus",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    },
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleMaximizedPanel",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "terminalFocus"
+  },
+  // Terminal splits (tmux-like with Ctrl+Space prefix)
+  {
+    "key": "ctrl+space -",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+space \\",
+    "command": "workbench.action.terminal.splitInActiveWorkspace",
+    "when": "terminalFocus"
+  },
+  // Navigate between terminal panes
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  // Kill terminal (like tmux kill-pane)
+  {
+    "key": "ctrl+space x",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // Create new terminal
+  {
+    "key": "ctrl+space c",
+    "command": "workbench.action.terminal.new"
+  },
+  // Toggle panel maximize
+  {
+    "key": "ctrl+space m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  // Toggle maximize editor group (like tmux zoom pane)
+  {
+    "key": "ctrl+space z",
+    "command": "workbench.action.toggleMaximizeEditorGroup"
+  },
+  // ============================================================
+  // EDITOR GROUPS & SPLITS (tmux-inspired)
+  // ============================================================
+  // Split editor
+  {
+    "key": "ctrl+space \\",
+    "command": "workbench.action.splitEditorRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+space -",
+    "command": "workbench.action.splitEditorDown",
+    "when": "editorTextFocus"
+  },
+  // Navigate between editor groups
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorFocus && vim.active && vim.mode != 'Insert'"
+  },
+  // Move editor to different group
+  {
+    "key": "ctrl+space o",
+    "command": "workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "ctrl+space shift+o",
+    "command": "workbench.action.moveEditorToPreviousGroup"
+  },
+  // Close current editor
+  {
+    "key": "ctrl+space x",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "editorFocus"
+  },
+  // ============================================================
+  // FILE & PROJECT NAVIGATION
+  // ============================================================
+  // Recent workspaces
+  {
+    "key": "cmd+r",
+    "command": "workbench.action.openRecent"
+  },
+  // Quick switch between recent files
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+  },
+  // ============================================================
+  // SIDEBAR & PANELS
+  // ============================================================
+  // Toggle sidebar
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  // ============================================================
+  // NUMBER KEY SIDEBAR SHORTCUTS - Toggle behavior
+  // ============================================================
+  // cmd+1 → Toggle Explorer
+  {
+    "key": "cmd+1",
+    "command": "workbench.view.explorer",
+    "when": "!explorerViewletVisible"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible && explorerViewletFocus"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.view.explorer",
+    "when": "explorerViewletVisible && !explorerViewletFocus"
+  },
+  // cmd+2 → Toggle Search
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.search' && sideBarVisible"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.view.search",
+    "when": "activeViewlet != 'workbench.view.search' || !sideBarVisible"
+  },
+  // cmd+3 → Toggle Debug
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.debug' && sideBarVisible"
+  },
+  {
+    "key": "cmd+3",
+    "command": "workbench.view.debug",
+    "when": "activeViewlet != 'workbench.view.debug' || !sideBarVisible"
+  },
+  // cmd+4 → Toggle Testing
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.test' && sideBarVisible"
+  },
+  {
+    "key": "cmd+4",
+    "command": "workbench.view.extension.test",
+    "when": "activeViewlet != 'workbench.view.extension.test' || !sideBarVisible"
+  },
+  // cmd+5 → Toggle Containers
+  {
+    "key": "cmd+5",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.containersView' && sideBarVisible"
+  },
+  {
+    "key": "cmd+5",
+    "command": "workbench.view.extension.containersView",
+    "when": "activeViewlet != 'workbench.view.extension.containersView' || !sideBarVisible"
+  },
+  // cmd+6 → Toggle AWS
+  {
+    "key": "cmd+6",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.aws-explorer' && sideBarVisible"
+  },
+  {
+    "key": "cmd+6",
+    "command": "workbench.view.extension.aws-explorer",
+    "when": "activeViewlet != 'workbench.view.extension.aws-explorer' || !sideBarVisible"
+  },
+  // cmd+7 → Toggle Postgres
+  {
+    "key": "cmd+7",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.postgres-connection' && sideBarVisible"
+  },
+  {
+    "key": "cmd+7",
+    "command": "workbench.view.extension.postgres-connection",
+    "when": "activeViewlet != 'workbench.view.extension.postgres-connection' || !sideBarVisible"
+  },
+  // cmd+8 → Toggle GitHub Pull Requests
+  {
+    "key": "cmd+8",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.github-pull-requests' && sideBarVisible"
+  },
+  {
+    "key": "cmd+8",
+    "command": "workbench.view.extension.github-pull-requests",
+    "when": "activeViewlet != 'workbench.view.extension.github-pull-requests' || !sideBarVisible"
+  },
+  // cmd+9 → Toggle GitHub Actions
+  {
+    "key": "cmd+9",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.extension.github-actions' && sideBarVisible"
+  },
+  {
+    "key": "cmd+9",
+    "command": "workbench.view.extension.github-actions",
+    "when": "activeViewlet != 'workbench.view.extension.github-actions' || !sideBarVisible"
+  },
+  // cmd+` → Toggle Terminal
+  {
+    "key": "cmd+`",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+
+  // cmd+0 → Claude Code: Toggle
+  {
+    "key": "cmd+0",
+    "command": "workbench.action.togglePanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+0",
+    "command": "claude-vscode.terminal.open",
+    "when": "!terminalFocus"
+  },
+  // ============================================================
+  // GIT OPERATIONS
+  // ============================================================
+  // Quick diff view
+  {
+    "key": "cmd+d",
+    "command": "git.openChange",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // Git commit
+  {
+    "key": "ctrl+space shift+g",
+    "command": "git.commit"
+  },
+  // ============================================================
+  // LSP & CODE ACTIONS (Vim-style in normal mode)
+  // ============================================================
+  // Go to definition (normal gd in vim)
+  {
+    "key": "g d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  // Go to references (normal gr in vim)
+  {
+    "key": "g r",
+    "command": "editor.action.goToReferences",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  // Go to implementation
+  {
+    "key": "g i",
+    "command": "editor.action.goToImplementation",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  // Show hover (like K in vim)
+  {
+    "key": "shift+k",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  }
+]

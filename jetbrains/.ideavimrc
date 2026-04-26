@@ -1,0 +1,82 @@
+set mouse:a
+set clipboard+=ideaput
+set scrolloff=5
+set incsearch
+set easymotion
+
+set relativenumber
+set number
+
+let mapleader="\"
+imap jj <ESC>
+
+map <C-h> <C-W>h
+map <c-j> <C-W>j
+map <c-k> <C-W>k
+map <c-l> <C-W>l
+
+nnoremap gh gf
+nnoremap gl gt
+
+nnoremap [<SPACE> O<ESC>j
+nnoremap ]<SPACE> o<ESC>k
+
+nnoremap [[ :action Back<CR>
+nnoremap ]] :action Forward<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [e :action GotoNextError<CR>
+nnoremap ]e :action GotoPrevError<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+nnoremap <C-CR> :action ShowIntentAction<CR>
+nnoremap <CR> :action EditorEnter<CR>
+
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>r :action Run<CR>
+nnoremap <leader>d :action Debug<CR>
+nnoremap <leader>c :action Stop<CR>
+
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>U :action HighlightUsagesInFile<CR>
+nnoremap <leader>n :action RenameElement<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplemention<CR>
+
+nnoremap gwd :action ActivateDebugToolWindow<CR>
+nnoremap gwr :action ActivateRunToolWindow<CR>
+nnoremap gwp :action ActivateProjectToolWindow<CR>
+nnoremap gwt :action ActivateTerminalToolWindow<CR>
+nnoremap gwb :action ViewBreakPoints<CR>
+nnoremap gjz :action ToogleDistractionFreeMode<CR>
+
+" Handle shift+arrows keys for text selection
+nmap <S-Left> <Action>(EditorLeftWithSelection)
+nmap <S-Right> <Action>(EditorRightWithSelection)
+nmap <S-Up> <Action>(EditorUpWithSelection)
+nmap <S-Down> <Action>(EditorDownWithSelection)
+imap <S-Left> <Action>(EditorLeftWithSelection)
+imap <S-Right> <Action>(EditorRightWithSelection)
+imap <S-Up> <Action>(EditorUpWithSelection)
+imap <S-Down> <Action>(EditorDownWithSelection)
+vmap <S-Left> <Action>(EditorLeftWithSelection)
+vmap <S-Right> <Action>(EditorRightWithSelection)
+vmap <S-Up> <Action>(EditorUpWithSelection)
+vmap <S-Down> <Action>(EditorDownWithSelection)
+
+" Java
+nnoremap gwg :action ActivateGradleToolWindow<CR>
+nnoremap gjd :action QuickJavaDoc<CR>
+
+
+" Python
+nnoremap gwc :action ActivatePythonConsoleToolWindow<CR>
+nnoremap gwm :action DjangoRunManageTaskAction<CR>
+
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+

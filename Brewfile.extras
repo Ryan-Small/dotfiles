@@ -1,0 +1,6 @@
+# These packages are intended to be installed only on personal machines.
+
+cask "discord"
+cask "minecraft"
+cask "steam"
+

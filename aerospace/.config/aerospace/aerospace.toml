@@ -1,0 +1,149 @@
+# AeroSpace Configuration
+# https://nikitabobko.github.io/AeroSpace/guide
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Run JankyBorders for active-window highlight (brew install borders)
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=4.0 style=round'
+]
+
+# Normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Gaps configuration
+gaps.inner.horizontal = 8
+gaps.inner.vertical = 8
+gaps.outer.left = 8
+gaps.outer.bottom = 8
+gaps.outer.top = 8
+gaps.outer.right = 8
+
+# Accordion: peek width for unfocused windows when in accordion layout
+accordion-padding = 30
+
+# Mode configuration
+[mode.main.binding]
+# Change focused window
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Join windows (works better with normalization)
+alt-shift-v = 'join-with up'
+alt-shift-s = 'join-with left'
+
+# Resize windows
+alt-ctrl-h = 'resize width -50'
+alt-ctrl-j = 'resize height +50'
+alt-ctrl-k = 'resize height -50'
+alt-ctrl-l = 'resize width +50'
+
+# Layout commands
+alt-f = 'layout floating tiling'                         # Toggle floating/tiling
+alt-shift-f = 'fullscreen'                               # Toggle fullscreen
+alt-t = 'layout tiles'                                   # Force tiling layout
+alt-e = 'balance-sizes'                                  # Balance window sizes
+alt-slash = 'layout tiles horizontal vertical'           # Tiles (auto-orient)
+alt-comma = 'layout accordion horizontal vertical'       # Accordion (auto-orient)
+
+# Workspace switching (using numbers)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 0'
+
+# Move windows to workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 0'
+
+# Service commands
+alt-shift-r = 'reload-config'      # Reload configuration
+alt-shift-q = 'close'               # Close focused window
+
+# Resize mode
+alt-r = 'mode resize'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+shift-h = 'resize width -200'
+shift-j = 'resize height +200'
+shift-k = 'resize height -200'
+shift-l = 'resize width +200'
+enter = 'mode main'
+esc = 'mode main'
+
+
+# Floating apps (utility windows that don't belong in tiles)
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.valvesoftware.steam'
+run = 'layout floating'
+
+# Workspace routing
+# ws 1: Chrome | ws 2: Claude Desktop | ws 3: Obsidian | ws 5: Discord
+# ws 9: VSCode | ws 0: iTerm2
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = 'move-node-to-workspace 0'

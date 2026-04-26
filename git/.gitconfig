@@ -1,0 +1,78 @@
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    df = diff
+    pu = push
+    st = status
+
+    # Standard commands does not support patterns, whereas `--list` does.
+    # For example, `git tag --list "v1.*"
+    tags = tag --list
+    branches = branch --list --all
+    remotes = remote --verbose
+    lg = log --graph --oneline --decorate
+
+[branch]
+    sort = -committerdate      # newest branches first
+
+[core]
+    editor = nvim
+    fsmonitor = true           # use filesystem events instead of scanning every file
+    untrackedCache = true      # cache untracked file state between status calls
+
+[diff]
+    algorithm = histogram      # produces more readable diffs than default myers
+    colorMoved = default       # highlight moved lines differently from added/removed
+    renames = true             # detect renames in diffs without needing -M flag
+    tool = nvimdiff
+
+[difftool]
+    prompt = false             # skip "are you sure?" prompt before opening difftool
+
+[fetch]
+    prune = true               # remove stale remote-tracking branches on fetch
+
+[help]
+    autocorrect = 20           # auto-run corrected command after 2s on typo
+
+[init]
+    defaultBranch = main
+
+[merge]
+    conflictstyle = zdiff3     # show base, ours, and theirs in conflict markers
+    tool = nvimdiff
+
+[mergetool]
+    prompt = false             # skip "are you sure?" prompt before opening mergetool
+
+[pull]
+    rebase = true              # rebase local commits on top of upstream instead of merging
+    default = current          # pull into the current branch from its remote counterpart
+
+[push]
+    autoSetupRemote = true     # auto-set upstream on first push of a new branch
+    default = current          # push current branch to same-named remote branch
+    followTags = true          # push annotated tags reachable from pushed commits
+
+[rebase]
+    autoSquash = true          # auto-reorder fixup!/squash! commits in interactive rebase
+    autoStash = true           # stash dirty worktree before rebase, re-apply after
+
+[rerere]
+    enabled = true             # remember conflict resolutions and reuse them automatically
+
+[status]
+    branch = true
+    short = true
+    showStash = true           # show stash count in status output
+    #showUntrackedFiles = all
+
+[tag]
+    sort = -taggerdate         # newest tags first
+
+[url "git@github.com:"]
+    insteadOf = "gh:"          # allow `git clone gh:user/repo` shorthand
+
+[include]
+    path = ~/.gitconfig.local  # machine-specific config (credentials, signing, identity)
