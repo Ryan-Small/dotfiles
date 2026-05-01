@@ -8,13 +8,19 @@
 
 - **Ask when uncertain** — If which file, which name, or which approach is ambiguous, pause and ask before acting. Don't guess and proceed. _Why: a 10-second question prevents 10 minutes of unwinding the wrong path._
 
+- **Surface alternatives, don't pick silently** — When a request has multiple plausible interpretations or implementation paths, lay them out briefly and ask which I want rather than choosing one and proceeding. _Why: a silent wrong pick costs more to unwind than a 10-second clarification, and I lose the chance to weigh the tradeoff._
+
 ## Engineering discipline
 
-- **Verify before declaring done** — Run the relevant tests, lint, typecheck, or build for the scope of the change. For UI work, exercise the feature in a browser. State what was verified and what wasn't. _Why: unverified work is unfinished work — if you can't prove it works, you don't understand it yet._
+- **Verify before declaring done** — Before non-trivial work, restate the task as a verifiable goal ("write a failing test, then make it pass"; "tests pass before and after the refactor"). After the change, run the relevant tests, lint, typecheck, or build for the scope of the change. For UI work, exercise the feature in a browser. State what was verified and what wasn't. _Why: weak success criteria force constant clarification; strong ones let the loop run independently. Unverified work is unfinished work — if you can't prove it works, you don't understand it yet._
 
 - **No half measures** — No partial implementations, placeholder code, or "fix later" workarounds. Remove dead code, commented-out blocks, unused imports, and temporary files introduced during the change. _Why: cleanup deferred is cleanup abandoned._
 
 - **Strict scope** — Do exactly what was asked, no more. Don't refactor adjacent code, don't add unrequested features, don't "fix" nearby issues. Mention follow-up opportunities as a closing note, not as actions. _Why: scope creep makes diffs unreviewable and bundles unrelated risk._
+
+- **Match existing style, flag deviations separately** — Mirror the surrounding code's conventions in your change (naming, structure, error handling, file organization) even if you'd write it differently from scratch. When the existing style violates a best practice from this file or genuine engineering hygiene, name the *specific* gap as a closing note — don't silently propagate it, but don't unilaterally fix it either. _Why: stylistic consistency aids review more than local optimality; silently mimicking bad patterns entrenches them; surfacing them as concrete observations lets me decide whether cleanup is worth a separate change._
+
+- **Necessary complexity only** — Within the requested scope, write the code the problem requires — no more, no less. Cut speculative abstractions, unused configurability, and defensive checks against impossible states. Keep handling for edge cases that actually occur and validation at system boundaries (user input, external APIs, IO, deserialization). The test is *"can this code path happen in production?"* — if yes, handle it; if no, delete it. _Why: speculative code rots without ever running; missed real edge cases ship as bugs._
 
 ## Tooling defaults
 
