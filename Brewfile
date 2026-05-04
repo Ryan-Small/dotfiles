@@ -1,7 +1,5 @@
 # Primary packages that should be installed on every machine.
 
-tap "FelixKratz/formulae"
-
 cask "claude-code"
 cask "font-jetbrains-mono-nerd-font"
 cask "google-chrome"
@@ -12,7 +10,7 @@ cask "obsidian"
 cask "visual-studio-code"
 
 brew "awscli"
-brew "borders"
+brew "FelixKratz/formulae/borders"
 brew "curl"
 brew "docker"
 brew "docker-compose"
@@ -29,6 +27,7 @@ brew "libpq"
 brew "neovim"
 brew "ollama"
 brew "openjdk"
+brew "anomalyco/tap/opencode"
 brew "openssl"
 brew "python"
 brew "stow"
