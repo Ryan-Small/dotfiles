@@ -481,7 +481,7 @@
     "security.workspace.trust.enabled": false,
     "workbench.startupEditor": "none",
     "window.restoreWindows": "none",
-    "extensions.autoUpdate": true,
+    "extensions.autoUpdate": "on",
     "extensions.ignoreRecommendations": false,
     "chat.mcp.gallery.enabled": true,
     "pgsql.serverGroups": [
