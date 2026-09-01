@@ -484,49 +484,6 @@
     "extensions.autoUpdate": "on",
     "extensions.ignoreRecommendations": false,
     "chat.mcp.gallery.enabled": true,
-    "pgsql.serverGroups": [
-        {
-            "name": "Servers",
-            "id": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
-            "isDefault": true
-        }
-    ],
-    "pgsql.connections": [
-        {
-            "id": "1F39B89D-4AB5-4AE3-9E42-9610C2D4A687",
-            "groupId": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
-            "authenticationType": "SqlLogin",
-            "connectTimeout": 15,
-            "applicationName": "vscode-pgsql",
-            "clientEncoding": "utf8",
-            "sslmode": "prefer",
-            "savePassword": true,
-            "server": "localhost",
-            "user": "dbadmin",
-            "password": "",
-            "database": "stardust",
-            "profileName": "Nebula-Staging",
-            "sshPassword": "",
-            "expiresOn": 0
-        },
-        {
-            "id": "186F990F-B6D1-4D76-8C5F-46093BA0CD0B",
-            "groupId": "663CA931-FBF3-4E0B-8CC1-03454BD6F278",
-            "authenticationType": "SqlLogin",
-            "connectTimeout": 15,
-            "applicationName": "vscode-pgsql",
-            "clientEncoding": "utf8",
-            "sslmode": "prefer",
-            "savePassword": true,
-            "server": "localhost",
-            "user": "dbhistory",
-            "password": "",
-            "database": "dbhistory",
-            "profileName": "dbhistory",
-            "sshPassword": "",
-            "expiresOn": 0
-        }
-    ],
     "claudeCode.useTerminal": true,
     "claudeCode.preferredLocation": "sidebar",
     "[dockercompose]": {
