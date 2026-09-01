@@ -162,6 +162,7 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
+  "enabledPlugins": {},
   "spinnerVerbs": {
     "mode": "replace",
     "verbs": [
@@ -186,7 +187,7 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "companyAnnouncements": [
     "The sky above the port was the color of television, tuned to a dead channel.",
     "The future is already here — it's just not evenly distributed.",
@@ -203,5 +204,7 @@
     "Information wants to be free. Information also wants to be expensive. That tension will not go away.",
     "The body was meat. The mind was software. The soul was the ghost in the machine."
   ],
-  "enabledPlugins": {}
+  "tui": "default",
+  "skipWorkflowUsageWarning": true,
+  "editorMode": "vim"
 }
