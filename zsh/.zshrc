@@ -2,8 +2,8 @@
 # Zsh Options
 #-------------------------------------------------------------------------
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=50000
 
 DISABLE_AUTO_TITLE="true"    # don't auto set the terminal title
 HIST_STAMPS="yyyy-mm-dd"     # command execution time format
