@@ -88,6 +88,20 @@ mkcd() {
 
 
 #-------------------------------------------------------------------------
+# Completion
+#-------------------------------------------------------------------------
+# Brew formulae ship completion files (_git, _docker, _gh, ...) and their
+# directory is already on $fpath — compinit was the only missing piece. Keep
+# this block below the ~/.zshrc.local line: compinit only sees $fpath as it
+# stands when compinit runs.
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # match regardless of case
+zstyle ':completion:*' menu select                         # navigable menu, not a static list
+
+
+#-------------------------------------------------------------------------
 # Custom Prompt Configuration
 #-------------------------------------------------------------------------
 
