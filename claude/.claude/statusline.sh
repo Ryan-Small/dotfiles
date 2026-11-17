@@ -9,7 +9,6 @@ input=$(cat)
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 
-agent_name=$(echo "$input" | jq -r '.agent.name // empty')
 worktree_branch=$(echo "$input" | jq -r '.worktree.branch // empty')
 context_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 context_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
@@ -32,7 +31,7 @@ if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
         if [[ -n "$worktree_branch" ]]; then
             branch="$worktree_branch"
         else
-            branch=$(git -C "$cwd" branch --no-optional-locks 2>/dev/null | sed -n 's/^\* //p')
+            branch=$(git --no-optional-locks -C "$cwd" branch 2>/dev/null | sed -n 's/^\* //p')
         fi
 
         if [[ -n "$branch" ]]; then
@@ -40,25 +39,20 @@ if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
         fi
 
         # Uncommitted changes (yellow asterisk)
-        if [[ -n $(git -C "$cwd" status --porcelain --no-optional-locks 2>/dev/null) ]]; then
+        if [[ -n $(git --no-optional-locks -C "$cwd" status --porcelain 2>/dev/null) ]]; then
             printf '\033[33m*\033[0m'
         fi
 
         # Unpushed commits (green up arrow + count)
-        ahead=$(git -C "$cwd" rev-list --no-optional-locks --count @{u}..HEAD 2>/dev/null || echo 0)
+        ahead=$(git --no-optional-locks -C "$cwd" rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
         if [[ "$ahead" -gt 0 ]]; then
             printf '\033[32m↑%s\033[0m' "$ahead"
         fi
 
         # Unpulled commits (red down arrow + count)
-        behind=$(git -C "$cwd" rev-list --no-optional-locks --count HEAD..@{u} 2>/dev/null || echo 0)
+        behind=$(git --no-optional-locks -C "$cwd" rev-list --count HEAD..@{u} 2>/dev/null || echo 0)
         if [[ "$behind" -gt 0 ]]; then
             printf '\033[31m↓%s\033[0m' "$behind"
-        fi
-
-        # Stashed changes (blue equivalence symbol)
-        if git -C "$cwd" rev-parse --no-optional-locks --verify refs/stash >/dev/null 2>&1; then
-            printf '\033[34m≡\033[0m'
         fi
     fi
 fi
@@ -87,11 +81,4 @@ if [[ -n "$model" ]]; then
         ctx_label=$(printf " | ${ctx_color}%d%%\033[2m of %s" "$ctx_int" "$size_label")
     fi
     printf ' | \033[2m%s%s\033[0m' "$model" "$ctx_label"
-fi
-
-# ---------------------------------------------------------------------------
-# Section 5: Agent name (cyan, only when running with --agent)
-# ---------------------------------------------------------------------------
-if [[ -n "$agent_name" ]]; then
-    printf ' | \033[36magent:%s\033[0m' "$agent_name"
 fi
